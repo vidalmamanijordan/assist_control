@@ -2,5 +2,4 @@
 
 @section('work_area')
     @livewire('admin.list-registers', ['events' => $events, 'careers' => $careers])
-    vidal
 @endsection
