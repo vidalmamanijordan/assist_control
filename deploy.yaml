@@ -1,14 +1,15 @@
 import: 
   - recipe/laravel.php
-  - 'contrib/npm.php'
-config:
-  repository: 'https://gitlab.com/vidalmamanijordan/assist_control.git'
+  - contrib/npm.php
 
-hosts:  
-  assist-control:
-      remote_user: root
-      hostname: assistcontrol.site
-      deploy_path: '/var/www/{{hostname}}'
+config:
+  repository: 'https://github.com/vidalmamanijordan/assist_control.git'
+
+hosts:
+  assistControl:
+    remote_user: root
+    hostname: assistcontrol.site
+    deploy_path: '/var/www/{{hostname}}'
 
 tasks:
   deploy:
