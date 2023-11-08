@@ -15,29 +15,27 @@ on:
         default: 'assistControl'
         # Input has to be provided for the workflow to run
         required: true
-        # The data type of the input
-        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   deploy:
     name: Deployment
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v2
-
+      
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.1
-
+          
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --ignore-platform-reqs
-
+        
       - name: Deploy
         uses: deployphp/action@master
         with:
-          private-key: ${{ secrets.PRIVATE_KEY }
-          known_hosts: ${{ secrets.KNOWN_HOSTS }
-          dep: deploy ${{ github.event.inputs.deploy_env } -v
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          dep: deploy ${{ github.event.inputs.deploy_env }} -v
