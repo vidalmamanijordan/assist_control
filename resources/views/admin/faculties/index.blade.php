@@ -131,6 +131,9 @@
                 </tbody>
             </table>    
         </div>
+        <div class="mt-2">
+            {{ $faculties->links() }}
+        </div>
     </div>
 @endsection
 
