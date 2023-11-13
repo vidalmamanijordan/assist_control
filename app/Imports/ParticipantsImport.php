@@ -12,9 +12,10 @@ class ParticipantsImport implements ToModel
         return new Participant([
             'name' => $row[0],
             'dni' => $row[1],
-            'phone' => $row[2],
-            'email' => $row[3],
-            'career_id' => $row[4]
+            'code' => $row[2],
+            'phone' => $row[3],
+            'email' => $row[4],
+            'career_id' => $row[5]
         ]);
     }
 }

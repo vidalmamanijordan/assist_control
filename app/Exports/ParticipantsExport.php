@@ -41,6 +41,7 @@ class ParticipantsExport implements FromCollection, WithCustomStartCell, Respons
         return [
             $participant->name,
             $participant->dni,
+            $participant->code,
             $participant->phone,
             $participant->email,
             $participant->career->name,
