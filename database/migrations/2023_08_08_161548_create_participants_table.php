@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('dni')->unique();
             $table->string('code')->unique();
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->unsignedBigInteger('career_id');
             $table->tinyInteger('status')->default(1);
 
