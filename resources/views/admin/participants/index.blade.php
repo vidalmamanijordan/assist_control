@@ -1,7 +1,7 @@
 @extends('dashboard')
 
 @section('work_area')
-    <div
+    {{-- <div
         class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 col-span-4">
         <div class="flex items-center justify-center">
             <span class="mr-5 text_midnight_blue">
@@ -165,7 +165,8 @@
         <div class="mt-2">
             {{ $participants->links() }}
         </div>
-    </div>
+    </div> --}}
+    @livewire('admin.list-participants', ['participants' => $participants])
 @endsection
 
 @section('js')
