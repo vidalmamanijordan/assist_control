@@ -280,11 +280,11 @@
                     <ul x-show="open" x-on:click.away="open=false" id="dropdown-example" class="py-2 space-y-2">
                         <li>
                             <a href="{{ route('adminfaculties.index') }}"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lista sedes</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lista facultades</a>
                         </li>
                         <li>
                             <a href="{{ route('adminfaculties.create') }}"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear sede</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear facultad</a>
                         </li>
                     </ul>
                 </li>

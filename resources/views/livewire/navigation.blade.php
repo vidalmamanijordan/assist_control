@@ -122,9 +122,10 @@
             <div class="flex items-center justify-start rtl:justify-end">
                 {{-- hamburger button {start} --}}
                 @auth
+                    {{-- Mobile {start} --}}
                     <div x-data="{ open: false }">
-                        <button x-on:click="open=true" data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
-                            type="button"
+                        <button x-on:click="open=true" data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
+                            aria-controls="logo-sidebar" type="button"
                             class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                             <span class="sr-only">Open sidebar</span>
                             <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -134,15 +135,17 @@
                                 </path>
                             </svg>
                         </button>
-                        <div x-show="open" x-on:click.away="open=false" class="absolute left-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div x-show="open" x-on:click.away="open=false"
+                            class="absolute left-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <ul class="space-y-2 font-medium">
+                                {{-- Users {start} --}}
                                 <li x-data="{ open: false }">
                                     <button x-on:click="open=true" type="button"
                                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                                         <i class="fa-solid fa-user-group text-gray-500"></i>
                                         <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Usuarios</span>
-                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 10 6">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 10 6">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                                 stroke-width="2" d="m1 1 4 4 4-4" />
                                         </svg>
@@ -150,17 +153,183 @@
                                     <ul x-show="open" x-on:click.away="open=false" class="py-2 space-y-2">
                                         <li>
                                             <a href="{{ route('adminusers.index') }}"
-                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lista usuarios</a>
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lista
+                                                usuarios</a>
                                         </li>
                                         <li>
                                             <a href="{{ route('adminusers.create') }}"
-                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear usuario</a>
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear
+                                                usuario</a>
                                         </li>
                                     </ul>
                                 </li>
+                                {{-- Users {end} --}}
+
+                                {{-- Sedes {start} --}}
+                                <li x-data="{ open: false }">
+                                    <button x-on:click="open=true" type="button"
+                                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                        <i class="fa-solid fa-building text-gray-500"></i>
+                                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Sedes</span>
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 1 4 4 4-4" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="open" x-on:click.away="open=false" class="py-2 space-y-2">
+                                        <li>
+                                            <a href="{{ route('adminsedes.index') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lista
+                                                sedes</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('adminsedes.create') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear
+                                                sede</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {{-- Sedes {end} --}}
+
+                                {{-- Faculties {start} --}}
+                                <li x-data="{ open: false }">
+                                    <button x-on:click="open=true" type="button"
+                                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                        <i class="fa-solid fa-tents text-gray-500"></i>
+                                        <span
+                                            class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Facultades</span>
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 1 4 4 4-4" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="open" x-on:click.away="open=false" class="py-2 space-y-2">
+                                        <li>
+                                            <a href="{{ route('adminfaculties.index') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lista
+                                                facultades</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('adminfaculties.create') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear
+                                                facultad</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {{-- Faculties {end} --}}
+
+                                {{-- Careers {start} --}}
+                                <li x-data="{ open: false }">
+                                    <button x-on:click="open=true" type="button"
+                                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                        <i class="fa-solid fa-city text-gray-500"></i>
+                                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Carreras</span>
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 1 4 4 4-4" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="open" x-on:click.away="open=false" class="py-2 space-y-2">
+                                        <li>
+                                            <a href="{{ route('admincareers.index') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lista
+                                                carreras</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('admincareers.create') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear
+                                                carrera</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {{-- Careers {end} --}}
+
+                                {{-- Participant {start} --}}
+                                <li x-data="{ open: false }">
+                                    <button x-on:click="open=true" type="button"
+                                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                        <i class="fa-solid fa-people-group text-gray-500"></i>
+                                        <span
+                                            class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Participantes</span>
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 1 4 4 4-4" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="open" x-on:click.away="open=false" class="py-2 space-y-2">
+                                        <li>
+                                            <a href="{{ route('adminparticipants.index') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lista
+                                                participantes</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('adminparticipants.create') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear
+                                                participante</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('adminparticipants.import') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Importar</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {{-- Participant {end} --}}
+
+                                {{-- Events {start} --}}
+                                <li x-data="{ open: false }">
+                                    <button x-on:click="open=true" type="button"
+                                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                        <i class="fa-solid fa-calendar-check text-gray-500"></i>
+                                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Eventos</span>
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 1 4 4 4-4" />
+                                        </svg>
+                                    </button>
+                                    <ul x-show="open" x-on:click.away="open=false" class="py-2 space-y-2">
+                                        <li>
+                                            <a href="{{ route('adminevents.index') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lista
+                                                eventos</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('adminevents.create') }}"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear
+                                                evento</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {{-- Events {end} --}}
+
+                                {{-- Assist {start} --}}
+                                <li>
+                                    <a href="{{ route('adminregistrations.index') }}"
+                                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                        <i class="fa-solid fa-clipboard-user text-gray-500"></i>
+                                        <span class="flex-1 ms-3 whitespace-nowrap">Asistencia</span>
+                                    </a>
+                                </li>
+                                {{-- Assist {end} --}}
+
+
+                                {{-- Registers {start} --}}
+                                <li>
+                                    <a href="{{ route('adminassists.index') }}"
+                                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                        <i class="fa-solid fa-address-card text-gray-500"></i>
+                                        <span class="flex-1 ms-3 whitespace-nowrap">Registros</span>
+                                    </a>
+                                </li>
+                                {{-- Registers {end} --}}
                             </ul>
                         </div>
                     </div>
+                    {{-- Mobile {end} --}}
                 @endauth
                 {{-- hamburger button {end} --}}
 
