@@ -450,15 +450,3 @@
     </aside>
     @yield('work_area')
 </x-app-layout>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const opcionesConDesplegable = document.querySelectorAll(".opcion-con-desplegable");
-        opcionesConDesplegable.forEach(function(opcion) {
-            opcion.addEventListener("click", function() {
-                const desplegable = opcion.querySelector(".desplegable");
-                desplegable.classList.toggle("hidden");
-            });
-        });
-    });
-</script>
