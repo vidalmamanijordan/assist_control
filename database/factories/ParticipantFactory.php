@@ -16,7 +16,9 @@ class ParticipantFactory extends Factory
             'phone' => $this->faker->unique()->randomNumber(9, true),
             'email' => $this->faker->unique()->safeEmail(),
             'status' => $this->faker->randomElement([0, 1]),
-            'career_id' => Career::all()->random()->id
+            'career_id' => Career::all()->random()->id,
+            'semester' => $this->faker->randomElement([1, 10]),
+            'group' => ('Único')
         ];
     }
 }

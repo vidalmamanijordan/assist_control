@@ -39,7 +39,9 @@ class ParticipantController extends Controller
             'code' => 'required|unique:participants,code',
             'phone' => 'required',
             'email' => 'required',
-            'career_id' => 'required'
+            'career_id' => 'required',
+            'semester' => 'required',
+            'group' => 'required'
         ]);
 
         Participant::create($request->all());
@@ -62,7 +64,9 @@ class ParticipantController extends Controller
             'code' => 'required',
             'phone' => 'required',
             'email' => 'required',
-            'career_id' => 'required'
+            'career_id' => 'required',
+            'semester' => 'required',
+            'group' => 'required'
         ]);
 
         $participant->update($request->all());

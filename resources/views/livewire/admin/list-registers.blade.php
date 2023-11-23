@@ -127,6 +127,12 @@
                                     <i class="fa-solid fa-sort"></i>
                                 @endif
                             </th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">
+                                Ciclo
+                            </th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">
+                                Grupo
+                            </th>
                             <th scope="col" class="px-6 py-4 font-medium text-gray-900">Fecha</th>
                             <th scope="col" class="px-6 py-4 font-medium text-gray-900">Usuario <label
                                     class="text-sm font-thin">(registrador)</label></th>
@@ -153,6 +159,8 @@
                                 </td>
                                 <td class="px-6 py-4">{{ $assit->event->name }}</td>
                                 <td class="px-6 py-4">{{ $assit->career }}</td>
+                                <td class="px-6 py-4">{{ $assit->semester }}</td>
+                                <td class="px-6 py-4">{{ $assit->group }}</td>
                                 <td class="px-6 py-4">
                                     <div class="flex gap-2">
                                         <span

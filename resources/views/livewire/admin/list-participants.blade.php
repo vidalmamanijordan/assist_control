@@ -33,7 +33,7 @@
                        placeholder="Buscar..." required>
             </div>
             <button type="submit" class="mt-2 ml-1 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                <i class="fa-solid fa-xmark"></i>Limpiar
+                Limpiar
             </button>
         </form><br>
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -46,6 +46,8 @@
                     <th>Telefono</th>
                     <th>Email</th>
                     <th>Carrera</th>
+                    <th>Ciclo</th>
+                    <th>Grupo</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
@@ -75,6 +77,12 @@
                         </td>
                         <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
                             {{ $participant->career->name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $participant->semester }}
+                        </td>
+                        <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                            {{ $participant->group }}
                         </td>
                         <td class="px-6 py-4">
                             @if ($participant->status === 1)

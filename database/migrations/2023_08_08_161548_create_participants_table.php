@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email')->nullable();
             $table->unsignedBigInteger('career_id');
+            $table->string('semester')->nullable();
+            $table->string('group')->nullable();
             $table->tinyInteger('status')->default(1);
 
             $table->foreign('career_id')->references('id')->on('careers')->onDelete('cascade');

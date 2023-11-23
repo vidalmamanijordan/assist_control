@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('event_id');
             $table->unsignedBigInteger('participant_id');
             $table->string('career')->nullable();
+            $table->string('semester')->nullable();
+            $table->string('group')->nullable();
             $table->dateTime('date')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

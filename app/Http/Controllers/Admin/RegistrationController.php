@@ -49,12 +49,26 @@ class RegistrationController extends Controller
                 $careerName = $data['name'];
                 /* CareerName {end}*/
 
+                /* SemesterName {start} */
+                $semesterId = Participant::where('id', $participantId)->select('semester')->first();
+                $data = json_decode($semesterId, true);
+                $semesterName = $data['semester'];
+                /* SemesterName {start} */
+
+                /* GroupName {start} */
+                $groupId = Participant::where('id', $participantId)->select('group')->first();
+                $data = json_decode($groupId, true);
+                $groupName = $data['group'];
+                /* GroupName {start} */
+
                 $registrar = new Assist();
 
                 $registrar->user_id = auth()->id();
                 $registrar->event_id = $registration;
                 $registrar->participant_id = $participantId;
                 $registrar->career = $careerName;
+                $registrar->semester = $semesterName;
+                $registrar->group = $groupName;
                 $registrar->date = $currentDate;
 
                 $registrar->save();
@@ -70,6 +84,18 @@ class RegistrationController extends Controller
                 $data = json_decode($career, true);
                 $careerName = $data['name'];
                 /* CareerName {end}*/
+
+                /* SemesterName {start} */
+                $semesterId = Participant::where('id', $participantId)->select('semester')->first();
+                $data = json_decode($semesterId, true);
+                $semesterName = $data['semester'];
+                /* SemesterName {start} */
+
+                /* GroupName {start} */
+                $groupId = Participant::where('id', $participantId)->select('group')->first();
+                $data = json_decode($groupId, true);
+                $groupName = $data['group'];
+                /* GroupName {start} */
                 
                 $registrar = new Assist();
 
@@ -77,6 +103,8 @@ class RegistrationController extends Controller
                 $registrar->event_id = $registration;
                 $registrar->participant_id = $participantId;
                 $registrar->career = $careerName;
+                $registrar->semester = $semesterName;
+                $registrar->group = $groupName;
                 $registrar->date = $currentDate;
 
                 $registrar->save();
