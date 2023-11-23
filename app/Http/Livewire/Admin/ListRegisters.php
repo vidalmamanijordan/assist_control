@@ -23,7 +23,7 @@ class ListRegisters extends Component
     ];
 
     public $filters = [
-        'event_id' => '1',
+        'event_id' => '',
         'career' => ''
     ];
 
