@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('event_id');
             $table->unsignedBigInteger('participant_id');
+            $table->string('code')->nullable();
+            $table->string('names')->nullable();
             $table->string('career')->nullable();
             $table->string('semester')->nullable();
             $table->string('group')->nullable();

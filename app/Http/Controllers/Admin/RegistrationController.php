@@ -61,11 +61,25 @@ class RegistrationController extends Controller
                 $groupName = $data['group'];
                 /* GroupName {start} */
 
+                /* Code {start} */
+                $codeId = Participant::where('id', $participantId)->select('code')->first();
+                $data = json_decode($codeId, true);
+                $code = $data['code'];
+                /* Code {start} */
+
+                /* Names {start} */
+                $namesId = Participant::where('id', $participantId)->select('name')->first();
+                $data = json_decode($namesId, true);
+                $names = $data['name'];
+                /* Names {start} */
+
                 $registrar = new Assist();
 
                 $registrar->user_id = auth()->id();
                 $registrar->event_id = $registration;
                 $registrar->participant_id = $participantId;
+                $registrar->code = $code;
+                $registrar->names = $names;
                 $registrar->career = $careerName;
                 $registrar->semester = $semesterName;
                 $registrar->group = $groupName;
@@ -96,12 +110,26 @@ class RegistrationController extends Controller
                 $data = json_decode($groupId, true);
                 $groupName = $data['group'];
                 /* GroupName {start} */
+
+                /* Code {start} */
+                $codeId = Participant::where('id', $participantId)->select('code')->first();
+                $data = json_decode($codeId, true);
+                $code = $data['code'];
+                /* Code {start} */
+
+                /* Names {start} */
+                $namesId = Participant::where('id', $participantId)->select('name')->first();
+                $data = json_decode($namesId, true);
+                $names = $data['name'];
+                /* Names {start} */
                 
                 $registrar = new Assist();
 
                 $registrar->user_id = auth()->id();
                 $registrar->event_id = $registration;
                 $registrar->participant_id = $participantId;
+                $registrar->code = $code;
+                $registrar->names = $names;
                 $registrar->career = $careerName;
                 $registrar->semester = $semesterName;
                 $registrar->group = $groupName;

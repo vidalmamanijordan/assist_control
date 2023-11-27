@@ -6,6 +6,7 @@ use App\Exports\AssistExport;
 use App\Models\Assist;
 use Livewire\Component;
 use Livewire\WithPagination;
+use PhpParser\Node\NullableType;
 
 class ListRegisters extends Component
 {
@@ -21,11 +22,15 @@ class ListRegisters extends Component
         'direction',
         'sort'
     ];
-
     public $filters = [
         'event_id' => '',
         'career' => ''
     ];
+    public $search;
+
+    public function updatingSearch() {
+        $this->resetPage();
+    }
 
     public function generateReport()
     {
@@ -34,13 +39,16 @@ class ListRegisters extends Component
 
     public function render()
     {
-        /* $assits = Assist::OrderBy('id', 'desc')->paginate(10); */
-        /* $assits = Assist::filter($this->filters)->paginate(10); */
+        $total = Assist::count();
         $assits = Assist::filter($this->filters)
+                    ->where(function($query){
+                        $query->where('names', 'LIKE', '%' . $this->search . '%')
+                              ->orWhere('code', 'LIKE', '%' . $this->search . '%');
+                    })
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->cant);
 
-        return view('livewire.admin.list-registers', compact('assits'));
+        return view('livewire.admin.list-registers', compact('assits', 'total'));
     }
 
     public function order($sort)

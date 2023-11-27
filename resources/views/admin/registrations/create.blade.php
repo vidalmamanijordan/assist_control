@@ -86,6 +86,7 @@
                             <small>{{ $message }}</small>
                         @enderror
                         {!! Form::submit('Registrar', [
+                            'id' => 'playBtn',
                             'class' =>
                                 'text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800',
                         ]) !!}
@@ -153,4 +154,38 @@
             {{-- search {end} --}}
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let audio;
+
+            // Selecciona el sonido basado en el tipo de mensaje
+            @if (session('message') === 'El usuario registró su asistencia')
+                audio = new Audio('{{ asset('audios/success-6297.mp3') }}');
+                audio.play();
+            @elseif (session('not_found') === 'Dato no encontrado en nuestros registros')
+                audio = new Audio('{{ asset('audios/error-126627.mp3') }}');
+                audio.play();
+            @elseif (session('warning') === 'Ingrese dato a buscar')
+                audio = new Audio('{{ asset('audios/beep-warning-6387.mp3') }}');
+                audio.play();
+            @endif
+
+            let playBtn = document.getElementById('playBtn');
+
+            if (playBtn && audio) {
+                playBtn.addEventListener('click', function () {
+                    audio.play();
+
+                    // Detener la reproducción después de 3 segundos
+                    setTimeout(function () {
+                        audio.pause();
+                        audio.currentTime = 0;
+                    }, 3000);
+                });
+            }
+        });
+    </script>
 @endsection

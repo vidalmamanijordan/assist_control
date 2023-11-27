@@ -9,7 +9,7 @@
                 <div>
                     Evento:
                     <select wire:model="filters.event_id" name="event"
-                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-sm">
                         <option value="">Todos</option>
                         @foreach ($events as $event)
                             <option value="{{ $event->id }}">{{ $event->name }}</option>
@@ -21,7 +21,7 @@
                 <div>
                     Carrera:
                     <select wire:model="filters.career" name=""
-                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-sm">
                         <option value="">Todos</option>
                         @foreach ($careers as $career)
                             <option value="{{ $career->name }}">{{ $career->name }}</option>
@@ -31,9 +31,14 @@
             </div>
             <div class="flex items-center justify-center h-14 rounded bg-gray-50 dark:bg-gray-800">
                 <div class="mt-1">
+                    <label class="mr-12 font-bold">Total: {{ $total }}</label>
                     <button wire:click="generateReport"
                         class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
-                        <i class="fa-solid fa-file-excel"></i>&nbsp;Exportar
+                        <i class="fa-solid fa-file-excel"></i>&nbsp;Exportar en Excel
+                    </button>
+                    <button
+                        class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
+                        <i class="fa-solid fa-file-pdf"></i>&nbsp;Exportar en PDF
                     </button>
                 </div>
             </div>
@@ -43,7 +48,7 @@
                 <div class="flex items-center justify-center mr-2">
                     <span>Mostrar</span>
                     <select wire:model="cant"
-                        class="mx-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        class="mx-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-sm">
                         <option value="10">10</option>
                         <option value="25">25</option>
                         <option value="50">50</option>
@@ -88,6 +93,7 @@
                                     <i class="fa-solid fa-sort"></i>
                                 @endif
                             </th>
+                            <th>Código</th>
                             <th scope="col" class="px-6 py-4 font-medium text-gray-900 cursor-pointer"
                                 wire:click="order('participant_id')">
                                 Participante
@@ -144,6 +150,7 @@
                         @foreach ($assits as $assit)
                             <tr class="hover:bg-gray-50">
                                 <th class="px-6 py-4">{{ $assit->id }}</th>
+                                <td>{{ $assit->code }}</td>
                                 <td class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                                     <div class="relative h-10 w-10">
                                         <img class="h-full w-full rounded-full object-cover object-center"
