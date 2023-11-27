@@ -18,9 +18,7 @@ class Assist extends Model
             $query->where('event_id', $event_id);
         })->when($filters['career'] ??  null, function($query, $career) {
             $query->where('career', $career);
-        })->when($filters['code'] ??  null, function($query, $career) {
-            $query->where('code', $career);
-        });;
+        });
     }
 
     /* Relación uno a muchos (inversa) */
