@@ -2,7 +2,7 @@
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
         <div class="flex items-center justify-center h-12 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-            <label class="font-bold">Reportes</label>
+            <i class="fa-solid fa-chart-simple text-rose-500 text-lg"></i>&nbsp;<label class="font-bold">Reportes</label>
         </div>
         <div class="grid grid-cols-3 gap-4 mb-4">
             <div class="flex items-center justify-center h-14 rounded bg-gray-50 dark:bg-gray-800">
@@ -31,7 +31,7 @@
             </div>
             <div class="flex items-center justify-center h-14 rounded bg-gray-50 dark:bg-gray-800">
                 <div class="mt-1">
-                    <label class="mr-12 font-bold">Total: {{ $total }}</label>
+                    <label class="mr-12 font-bold">Total: <span class="font-light">{{ $total }}</span></label>
                     <button wire:click="generateReport"
                         class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
                         <i class="fa-solid fa-file-excel"></i>&nbsp;Exportar en Excel
@@ -93,7 +93,19 @@
                                     <i class="fa-solid fa-sort"></i>
                                 @endif
                             </th>
-                            <th>Código</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900 cursor-pointer"
+                                wire:click="order('code')">
+                                Código
+                                @if ($sort == 'code')
+                                    @if ($direction == 'asc')
+                                        <i class="fa-solid fa-sort-alpha-up-alt float-right mt-1"></i>
+                                    @else
+                                        <i class="fa-solid fa-sort-alpha-down-alt float-right mt-1"></i>
+                                    @endif
+                                @else
+                                    <i class="fa-solid fa-sort"></i>
+                                @endif
+                            </th>
                             <th scope="col" class="px-6 py-4 font-medium text-gray-900 cursor-pointer"
                                 wire:click="order('participant_id')">
                                 Participante
@@ -171,7 +183,7 @@
                                 <td class="px-6 py-4">
                                     <div class="flex gap-2">
                                         <span
-                                            class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
+                                            class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600 text-center">
                                             {{ $assit->date }}
                                         </span>
                                     </div>

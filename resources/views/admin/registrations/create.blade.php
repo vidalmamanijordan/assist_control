@@ -6,7 +6,7 @@
             {{-- Event title {start} --}}
             <div class="flex items-center justify-center h-24 mb-4 rounded bg-gray-50 dark:bg-gray-800">
                 <label class="font-bold text-3xl">Evento:</label><label
-                    class="font-normal text-3xl text-gray-500">{{ $eventName->name }}</label>
+                    class="font-normal text-3xl text-gray-500">&nbsp;{{ $eventName->name }}</label>
             </div>
             {{-- Event title {end} --}}
 
@@ -17,12 +17,12 @@
                         <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
                         <span class="relative">Inicio:</span>
                     </span>
-                    <label class="text-gray-400">{{ $eventName->start_date }}</label>
+                    <label class="text-gray-400 text-sm">{{ $eventName->start_date }}</label>&nbsp;&nbsp;
                     <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
                         <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
                         <span class="relative">Termino:</span>
                     </span>
-                    <label class="text-gray-400">{{ $eventName->end_date }}</label>
+                    <label class="text-gray-400 text-sm">{{ $eventName->end_date }}</label>
                 </div>
                 <div class="flex items-center justify-center rounded bg-gray-50 h-16 dark:bg-gray-800">
                     <label class="text-3xl font-medium" id="hora-actual"></label>
@@ -80,7 +80,7 @@
                         {!! Form::text('search', null, [
                             'id' => 'miInput',
                             'class' =>
-                                'block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500',
+                                'w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500',
                         ]) !!}
                         @error('search')
                             <small>{{ $message }}</small>
