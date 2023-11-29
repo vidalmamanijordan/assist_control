@@ -6,7 +6,6 @@ use App\Exports\AssistExport;
 use App\Models\Assist;
 use Livewire\Component;
 use Livewire\WithPagination;
-use PhpParser\Node\NullableType;
 
 class ListRegisters extends Component
 {

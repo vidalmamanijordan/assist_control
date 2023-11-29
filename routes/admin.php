@@ -24,6 +24,7 @@ Route::get('participants/import', [ParticipantController::class, 'import'])->nam
 Route::post('participants/import', [ParticipantController::class, 'importStore'])->name('participants.importStore');
 Route::get('participants/export', [ParticipantController::class, 'export'])->name('participants.export');
 Route::resource('participants', ParticipantController::class)->names('participants');
+Route::get('assists/pdf', [AssistController::class, 'exportPdf'])->name('assists.pdf');
 Route::resource('assists', AssistController::class)->names('assists');
 Route::get('/registrations', [RegistrationController::class, 'index'])->name('registrations.index');
 Route::get('/registrations/{registration}/create', [RegistrationController::class, 'create'])->name('registrations.create');
