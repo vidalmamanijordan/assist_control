@@ -1,6 +1,3 @@
-{{-- @livewire('admin.export-pdf', ['assists' => $assists, 'events' => $events]) --}}
-
-
 <!DOCTYPE>
 <html>
 <meta charset="UTF-8">
@@ -244,3 +241,4 @@
 </body>
 
 </html>
+

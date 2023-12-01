@@ -7,9 +7,16 @@ use App\Models\Assist;
 use App\Models\Career;
 use App\Models\Event;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Request;
+use PHPUnit\Framework\MockObject\Stub\ReturnReference;
 
 class AssistController extends Controller
 {
+    public $filters = [
+        'event_id' => 1,
+        'career' => ''
+    ];
+
     public function index()
     {
         $events = Event::all();
@@ -20,14 +27,21 @@ class AssistController extends Controller
 
     public function show()
     {
-
     }
+
+    /* public function exportPdf()
+    {
+        $assists = Assist::all();
+
+        $pdf = Pdf::loadView('admin.assists.pdf', compact('assists'));
+        return $pdf->stream();
+    } */
 
     public function exportPdf()
     {
-        $assist = Assist::all();
+        $assists = Assist::filter($this->filters)->get();
 
-        $pdf = Pdf::loadView('admin.assists.pdf', compact('assist'));
+        $pdf = Pdf::loadView('admin.assists.pdf', compact('assists'));
         return $pdf->stream();
     }
 }

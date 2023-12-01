@@ -1,4 +1,3 @@
-
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
         <div class="flex items-center justify-center h-12 mb-4 rounded bg-gray-50 dark:bg-gray-800">
@@ -80,6 +79,9 @@
                 <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
                     <thead class="bg-gray-50">
                         <tr>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">
+                                #
+                            </th>
                             <th scope="col" class="px-6 py-4 font-medium text-gray-900 cursor-pointer"
                                 wire:click="order('id')">
                                 ID
@@ -159,9 +161,13 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+                        @php $counter = 1; @endphp
                         @foreach ($assits as $assit)
                             <tr class="hover:bg-gray-50">
-                                <th class="px-6 py-4">{{ $assit->id }}</th>
+                                <th class="px-6 py-4">
+                                    {{ $counter++ }}
+                                </th>
+                                <td>{{ $assit->id }}</td>
                                 <td>{{ $assit->code }}</td>
                                 <td class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                                     <div class="relative h-10 w-10">

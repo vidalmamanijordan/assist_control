@@ -27,7 +27,8 @@ class ListRegisters extends Component
     ];
     public $search;
 
-    public function updatingSearch() {
+    public function updatingSearch() 
+    {
         $this->resetPage();
     }
 
