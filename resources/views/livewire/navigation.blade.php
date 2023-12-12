@@ -227,7 +227,7 @@
 
                 {{-- logo {start} --}}
                 <a href="/" class="flex ms-2 md:me-24">
-                    <img class="h-8 w-auto mr-2" src="{{ asset('img/logos/dti_white.png') }}" alt="dti">
+                    <img class="h-8 w-auto mr-2" src="{{ asset('img/logos/vijorma_white.png') }}" alt="dti">
                 </a>
                 {{-- logo {end} --}}
 

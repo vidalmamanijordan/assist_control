@@ -45,9 +45,12 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
     public function headings(): array  
     {
         return [
+            'code',
             'Participante',
             'Evento',
             'Carrera Profesional',
+            'Ciclo',
+            'Grupo',
             'Fecha'
         ];
     }
@@ -57,9 +60,13 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
         $dateValue = $assist->date;
         $dateTime = new DateTime($dateValue);
         return [
+            $assist->code,
             $assist->participant->name,
             $assist->event->name,
             $assist->participant->career->name,
+            $assist->semester,
+            $assist->group,
+            /* $assist->date, */
             Date::dateTimeToExcel($dateTime)
         ];
     }
@@ -67,7 +74,7 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
     public function columnFormats(): array
     {
         return [
-            'D' => 'd/m/Y H:m:s'
+            'G' => 'd/m/Y H:m:s'
         ];
     }
 
