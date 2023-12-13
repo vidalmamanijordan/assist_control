@@ -83,8 +83,8 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
         $drawing = new Drawing();
 
         $drawing->setName('logo');
-        $drawing->setDescription('logo_dti');
-        $drawing->setPath(public_path('img/logos/dti_oficial.png'));
+        $drawing->setDescription('logo_vijorma');
+        $drawing->setPath(public_path('img/logos/vijorma_oficial.png'));
         $drawing->setHeight(50);
         $drawing->setCoordinates('A2');
 
