@@ -18,6 +18,7 @@ use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use SebastianBergmann\LinesOfCode\Counter;
 
 class AssistExport implements FromCollection, WithCustomStartCell, Responsable, WithMapping, WithColumnFormatting, WithHeadings, WithDrawings, WithStyles, ShouldAutoSize
 {
@@ -45,21 +46,26 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
     public function headings(): array  
     {
         return [
-            'code',
+            'N°',
+            'Código',
             'Participante',
             'Evento',
             'Carrera Profesional',
             'Ciclo',
             'Grupo',
-            'Fecha'
+            'Fecha | Hora'
         ];
     }
 
     public function map($assist): array
     {
+        static $counter = 1;
+
         $dateValue = $assist->date;
         $dateTime = new DateTime($dateValue);
+
         return [
+            $counter++,
             $assist->code,
             $assist->participant->name,
             $assist->event->name,
@@ -74,7 +80,7 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
     public function columnFormats(): array
     {
         return [
-            'G' => 'd/m/Y H:m:s'
+            'H' => 'd/m/Y H:m:s'
         ];
     }
 
@@ -94,5 +100,10 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
     public function styles(Worksheet $sheet)
     {
         $sheet->setTitle('Participantes');
+        $sheet->getStyle('A6:H6')->applyFromArray([
+            'font' => [
+                'bold' => true
+            ]
+        ]);
     }
 }

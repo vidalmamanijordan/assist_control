@@ -235,7 +235,7 @@
     <br>
     <footer>
         <div id="gracias">
-            <p><b>Gracias por su compra!</b></p>
+            <p><b>Gracias por su elección!</b></p>
         </div>
     </footer>
 </body>

@@ -7,13 +7,11 @@ use App\Models\Assist;
 use App\Models\Career;
 use App\Models\Event;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Request;
-use PHPUnit\Framework\MockObject\Stub\ReturnReference;
 
 class AssistController extends Controller
 {
     public $filters = [
-        'event_id' => 1,
+        'event_id' => '',
         'career' => ''
     ];
 

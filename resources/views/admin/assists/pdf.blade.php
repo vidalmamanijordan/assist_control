@@ -120,17 +120,17 @@
 <body>
     <header>
         <div id="logo">
-            <img src="img/logo2.png" alt="incanatoIT" id="imagen">
+            <img src="img/logos/vijorma_oficial.png" alt="vijorma" id="imagen">
         </div>
         <div id="datos">
             <p id="encabezado">
-                <b>IncanatoIT</b><br>José Gálvez 1368, Chongoyape - Chiclayo,
-                Perú<br>Telefono:(+51)931742904<br>Email:jcarlos.ad7@gmail.com
+                <b>vijorma ©</b><br> Juliaca - Puno
+                Perú<br>Telefono:(+51)945257563<br>Email:vidal_mamani@upeu.edu.pe
             </p>
         </div>
         <div id="fact">
             <p>Informe<br>
-                0001-0004</p>
+            General</p>
         </div>
     </header>
     <br>
@@ -139,24 +139,20 @@
             <table id="facliente">
                 <thead>
                     <tr>
-                        <th id="fac">Cliente</th>
+                        <th id="fac">lunes, 18 de diciembre</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th>
-                            <p id="cliente">Sr(a). Juan Carlos Arcila Díaz<br>
-                                Documento: 47715777<br>
-                                Dirección: Zarumilla 113 - Chiclayo<br>
-                                Teléfono: 931742904<br>
-                                Email: jcarlos.ad7@gmail.com</p>
+                            <p id="cliente">Estos eventos fueron diseñados para proporcionar a los asistentes información valiosa y oportunidades de aprendizaje.</p>
                         </th>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
-    <br>
+    {{-- <br>
     <section>
         <div>
             <table id="facvendedor">
@@ -175,7 +171,7 @@
             </table>
         </div>
     </section>
-    <br>
+    <br> --}}
     <section>
         <div>
             <table id="facarticulo">
@@ -208,7 +204,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-                <tfoot>
+                {{-- <tfoot>
                     <tr>
                         <th></th>
                         <th></th>
@@ -230,7 +226,7 @@
                         <th>TOTAL</th>
                         <td>total</td>
                     </tr>
-                </tfoot>
+                </tfoot> --}}
             </table>
         </div>
     </section>
@@ -238,7 +234,9 @@
     <br>
     <footer>
         <div id="gracias">
-            <p><b>Gracias por su compra!</b></p>
+            <p id="cliente">Atentamente,</p>
+            <br>
+            Vidal Mamani Jordan
         </div>
     </footer>
 </body>
