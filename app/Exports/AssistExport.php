@@ -18,7 +18,6 @@ use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
-use SebastianBergmann\LinesOfCode\Counter;
 
 class AssistExport implements FromCollection, WithCustomStartCell, Responsable, WithMapping, WithColumnFormatting, WithHeadings, WithDrawings, WithStyles, ShouldAutoSize
 {
@@ -105,5 +104,8 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
                 'bold' => true
             ]
         ]);
+
+        $sheet->getStyle($sheet->calculateWorksheetDimension())
+            ->getBorders()->getAllBorders()->setBorderStyle('none');
     }
 }

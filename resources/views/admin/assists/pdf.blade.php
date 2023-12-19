@@ -139,7 +139,9 @@
             <table id="facliente">
                 <thead>
                     <tr>
-                        <th id="fac">lunes, 18 de diciembre</th>
+                        <th id="fac">{{ $fechaFormateada }}<br>
+                                     {{ $horaActual }}
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -234,9 +236,9 @@
     <br>
     <footer>
         <div id="gracias">
-            <p id="cliente">Atentamente,</p>
-            <br>
-            Vidal Mamani Jordan
+            <p id="cliente">Atentamente,</p><br>          
+            {{ $name }}<br>
+            {{ $dni }}
         </div>
     </footer>
 </body>

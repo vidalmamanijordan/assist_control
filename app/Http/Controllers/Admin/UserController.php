@@ -32,6 +32,8 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'dni' => 'required',
+            'phone' => 'required',
             'email' => 'required',
             'password' => 'required|confirmed'
         ]);
@@ -39,6 +41,8 @@ class UserController extends Controller
         $user = new User();
 
         $user->name = $request->name;
+        $user->dni = $request->dni;
+        $user->phone = $request->phone;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
@@ -55,11 +59,15 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'dni' => 'required',
+            'phone' => 'required',
             'email' => 'required',
             'password' => 'required|confirmed'
         ]);
 
         $user->name = $request->name;
+        $user->dni = $request->dni;
+        $user->phone = $request->phone;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();

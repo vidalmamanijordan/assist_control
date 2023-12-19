@@ -7,6 +7,7 @@ use App\Models\Assist;
 use App\Models\Career;
 use App\Models\Event;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class AssistController extends Controller
 {
@@ -38,8 +39,18 @@ class AssistController extends Controller
     public function exportPdf()
     {
         $assists = Assist::filter($this->filters)->get();
+        
+        setlocale(LC_TIME, 'es_ES.UTF-8');
+        $fechaHoraActual = Carbon::now();
+        $fechaHoraActual->setTimezone('America/Lima');
+        $fechaFormateada = strftime('%A, %e de %B de %Y', $fechaHoraActual->getTimestamp());
+        $horaActual = $fechaHoraActual->format('h:i:s A');
+        
+        $user = auth()->user();
+        $name = $user->name;
+        $dni = $user->dni;
 
-        $pdf = Pdf::loadView('admin.assists.pdf', compact('assists'));
+        $pdf = Pdf::loadView('admin.assists.pdf', compact('assists', 'fechaFormateada', 'horaActual', 'name', 'dni'));
         return $pdf->stream();
     }
 }

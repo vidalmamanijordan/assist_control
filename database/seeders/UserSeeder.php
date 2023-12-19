@@ -13,6 +13,8 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Vidal Mamani Jordan',
+            'dni' => '47349709',
+            'phone' => '945257563',
             'email' => 'vidal_mamani@upeu.edu.pe',
             'password' => bcrypt('admin123')
         ]);

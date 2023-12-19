@@ -161,7 +161,9 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-                        @php $counter = 1; @endphp
+                        @php
+                            $counter = 1;
+                        @endphp
                         @foreach ($assits as $assit)
                             <tr class="hover:bg-gray-50">
                                 <th class="px-6 py-4">
@@ -201,7 +203,7 @@
                                     <span
                                         class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
                                         <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                                        Active
+                                        Activo
                                     </span>
                                 </td>
 

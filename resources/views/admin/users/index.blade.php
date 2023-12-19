@@ -16,32 +16,43 @@
                 </a>
             </div>
         </div>
-
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-2">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
-                    <tr class="text_midnight_blue font-bold">
-                        <th>ID</th>
-                        <th>Nombres</th>
-                        <th>Correos</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach ($users as $user)
+        <br>
+        <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md">
+            <div class="relative overflow-auto shadow-md sm:rounded-lg">
+                <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
+                    <thead class="bg-gray-50">
                         <tr>
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                                {{ $user->id }}
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ $user->name }}
-                            </td>
-                            <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                                {{ $user->email }}
-                            </td>
-                            <td class="px-6 py-4">
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">#</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Nombres</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Dni</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Teléfono</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">E-mail</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Estado</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+                        @php
+                            $counter = 1;
+                        @endphp
+
+                        @foreach ($users as $user)
+                            <tr class="hover:bg-gray-50">
+                                <th class="px-6 py-4">
+                                    {{ $counter++ }}
+                                </th>
+                                <td class="px-6 py-4">{{ $user->name }}</td>
+                                <td class="px-6 py-4">{{ $user->dni }}</td>
+                                <td class="px-6 py-4">{{ $user->phone }}</td>
+                                <td class="px-6 py-4">{{ $user->email }}</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
+                                        <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
+                                        Activo
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4">
                                 <div class="flex justify-center gap-4">
                                     <div class="
                                 relative
@@ -110,10 +121,11 @@
                                     </div>
                                 </div>
                             </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
         
         <div class="mt-2">
