@@ -5,3 +5,10 @@
 [x-cloak] {
     display: none;
 }
+
+.custom-truncate {
+    max-width: 50ch; /* 50 caracteres */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

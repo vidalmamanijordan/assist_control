@@ -4,18 +4,57 @@
             <span class="text_midnight_blue ml-4">
                 <i class="fa-solid fa-people-group text-2xl"></i>
             </span>
-            <label class="ml-4 font-bold">Información participantes</label>    
+            <label class="ml-4 font-bold">Información participantes</label>
         </div>
         <div class="flex items-center justify-center h-12 rounded bg-gray-50 dark:bg-gray-800">
-            <a href="{{ route('adminparticipants.create') }}" class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
+            <a href="{{ route('adminparticipants.create') }}"
+                class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium hidden sm:inline">
                 <i class="fa-solid fa-plus"></i></i>&nbsp;Nuevo
             </a>
-            <a href="{{ route('adminparticipants.import') }}" class=" ml-2 bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
+            <a href="{{ route('adminparticipants.import') }}"
+                class=" ml-2 bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium hidden sm:inline">
                 <i class="fa-solid fa-file-arrow-up"></i>&nbsp;Importar
             </a>
-            <a href="{{ route('adminparticipants.export') }}" class=" ml-2 bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
+            <a href="{{ route('adminparticipants.export') }}"
+                class=" ml-2 bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium hidden sm:inline">
                 <i class="fa-regular fa-file-excel"></i>&nbsp;Exportar
             </a>
+            <div class="flex justify-center items-center sm:hidden">
+                <label class="font-bold">Total: {{ $total }}</label>
+            </div>
+        </div>
+    </div>
+    Ver más
+
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+        <div class="grid grid-cols-3 gap-4 mb-4">
+            <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+                <p class="text-2xl text-gray-400 dark:text-gray-500">
+                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 1v16M1 9h16" />
+                    </svg>
+                </p>
+            </div>
+            <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+                <p class="text-2xl text-gray-400 dark:text-gray-500">
+                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 1v16M1 9h16" />
+                    </svg>
+                </p>
+            </div>
+            <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+                <p class="text-2xl text-gray-400 dark:text-gray-500">
+                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 1v16M1 9h16" />
+                    </svg>
+                </p>
+            </div>
         </div>
     </div>
 
@@ -24,19 +63,21 @@
             <label for="simple-search" class="sr-only">Search</label>
             <div class="relative w-full">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg>
                 </div>
                 <input wire:model="search" type="text" id="simple-search"
-                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                       placeholder="Buscar..." required>
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Buscar..." required>
             </div>
-            <button type="submit" class="mt-2 ml-1 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            <button type="submit"
+                class="mt-2 ml-1 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
                 Limpiar
             </button>
         </form>
-        <br>
         <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md">
             <div class="relative overflow-auto shadow-md sm:rounded-lg">
                 <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
@@ -108,10 +149,11 @@
                                                     hover:before:opacity-100 hover:after:opacity-100
                                                     "
                                             data-tipe="Editar">
-                                            <a href="{{ route('adminparticipants.edit', $participant) }}" class="text-sky-400">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6"
-                                                    x-tooltip="tooltip">
+                                            <a href="{{ route('adminparticipants.edit', $participant) }}"
+                                                class="text-sky-400">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                    class="h-6 w-6" x-tooltip="tooltip">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
                                                 </svg>
@@ -148,9 +190,9 @@
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="text-rose-600">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                        stroke-width="1.5" stroke="currentColor" class="h-6 w-6"
-                                                        x-tooltip="tooltip">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                        class="h-6 w-6" x-tooltip="tooltip">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
                                                             d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                                                     </svg>

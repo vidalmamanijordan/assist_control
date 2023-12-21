@@ -40,7 +40,7 @@
                                     {{ $counter++ }}
                                 </th>
                                 <td class="px-6 py-4">{{ $faculty->name }}</td>
-                                <td class="px-6 py-4">{{ $faculty->description }}</td>
+                                <td class="px-6 py-4 custom-truncate">{{ $faculty->description }}</td>
                                 <td class="px-6 py-4">{{ $faculty->sede->name }}</td>
                                 <td class="px-6 py-4">
                                     <span

@@ -14,9 +14,10 @@ class ParticipantController extends Controller
 {
     public function index()
     {
+        $total = Participant::count();
         $participants = Participant::OrderBy('id', 'desc')->paginate(100);
 
-        return view('admin.participants.index', compact('participants'));
+        return view('admin.participants.index', compact('participants', 'total'));
     }
 
     public function show()

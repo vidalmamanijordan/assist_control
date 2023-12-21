@@ -1,7 +1,7 @@
 @extends('dashboard')
 
 @section('work_area')
-    @livewire('admin.list-participants', ['participants' => $participants])
+    @livewire('admin.list-participants', ['participants' => $participants, 'total' => $total])
 @endsection
 
 @section('js')

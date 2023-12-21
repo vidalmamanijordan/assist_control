@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $total = User::count();;
+        $total = User::count();
         $users = User::OrderBy('id', 'desc')->paginate(10);
         
         return view('admin.users.index', compact('users', 'total'));

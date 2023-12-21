@@ -18,12 +18,13 @@ class ListParticipants extends Component
 
     public function render()
     {
+        $total = Participant::count();
         $participants = Participant::OrderBy('id', 'desc')
                                     ->where('name', 'LIKE', '%' . $this->search . '%')
                                     ->orWhere('dni', 'LIKE', '%' . $this->search . '%')
                                     ->orWhere('code', 'LIKE', '%' . $this->search . '%')
                                     ->paginate(100);
 
-        return view('livewire.admin.list-participants', compact('participants'));
+        return view('livewire.admin.list-participants', compact('participants', 'total'));
     }
 }

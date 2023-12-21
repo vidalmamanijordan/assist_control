@@ -83,8 +83,7 @@
                                                 </svg>
                                             </a>
                                         </div>
-                                        <div class="
-                                                relative
+                                        <div class="relative
                                                 before:content-[attr(data-tipe)]
                                                 before:absolute
                                                 before:px-2.5 before:py-2.5>
