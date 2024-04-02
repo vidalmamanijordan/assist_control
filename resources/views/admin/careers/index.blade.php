@@ -133,6 +133,7 @@
                     <thead>
                         <tr>
                             <th scope="col" class="px-6 py-4 font-medium text-gray-900">#</th>
+                            <th scope="col" class="px-6 py-4 font-medium text-gray-900">ID</th>
                             <th scope="col" class="px-6 py-4 font-medium text-gray-900">Carreras</th>
                             <th scope="col" class="px-6 py-4 font-medium text-gray-900">Descripción</th>
                             <th scope="col" class="px-6 py-4 font-medium text-gray-900">Facultad</th>
@@ -150,6 +151,7 @@
                                 <th class="px-6 py-4">
                                     {{ $counter++ }}
                                 </th>
+                                <td class="px-6 py-4 text-fuchsia-600 font-extrabold">{{ $career->id }}</td>
                                 <td class="px-6 py-4">{{ $career->name }}</td>
                                 <td class="px-6 py-4">{{ $career->description }}</td>
                                 <td class="px-6 py-4">{{ $career->faculty->name }}</td>
