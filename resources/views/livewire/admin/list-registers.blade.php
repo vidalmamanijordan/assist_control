@@ -35,10 +35,10 @@
                         class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
                         <i class="fa-solid fa-file-excel"></i>&nbsp;Exportar en Excel
                     </button>
-                    <a href="{{ route('adminassists.pdf') }}" target="_blank"
+                    {{-- <a href="{{ route('adminassists.pdf') }}" target="_blank"
                         class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
                         <i class="fa-solid fa-file-pdf"></i>&nbsp;Exportar en PDF
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
