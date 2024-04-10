@@ -3,7 +3,7 @@
         <div class="flex items-center justify-center h-12 mb-4 rounded bg-gray-50 dark:bg-gray-800">
             <i class="fa-solid fa-chart-simple text-rose-500 text-lg"></i>&nbsp;<label class="font-bold">Reportes</label>
         </div>
-        <div class="grid grid-cols-3 gap-4 mb-4">
+        {{-- <div class="grid grid-cols-3 gap-4 mb-4">
             <div class="flex items-center justify-center h-14 rounded bg-gray-50 dark:bg-gray-800">
                 <div>
                     Evento:
@@ -28,6 +28,8 @@
                     </select>
                 </div>
             </div>
+
+
             <div class="flex items-center justify-center h-14 rounded bg-gray-50 dark:bg-gray-800">
                 <div class="mt-1">
                     <label class="mr-12 font-bold">Total: <span class="font-light">{{ $total }}</span></label>
@@ -35,13 +37,43 @@
                         class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
                         <i class="fa-solid fa-file-excel"></i>&nbsp;Exportar en Excel
                     </button>
-                    {{-- <a href="{{ route('adminassists.pdf') }}" target="_blank"
+                    <a href="{{ route('adminassists.pdf') }}" target="_blank"
                         class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
                         <i class="fa-solid fa-file-pdf"></i>&nbsp;Exportar en PDF
-                    </a> --}}
+                    </a>
                 </div>
             </div>
+        </div> --}}
+        <div>
+            <div>
+                <label class="font-bold">Evento:</label>
+                <select wire:model="filters.event_id" name="event"
+                    class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-sm">
+                    <option value="">Todos</option>
+                    @foreach ($events as $event)
+                        <option value="{{ $event->id }}">{{ $event->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mt-1">
+                <label class="font-bold">Escuela Profesional:</label>
+                <select wire:model="filters.career" name=""
+                    class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-sm">
+                    <option value="">Todos</option>
+                    @foreach ($careers as $career)
+                        <option value="{{ $career->name }}">{{ $career->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mt-1">
+                <label class="mr-12 font-bold">Total: <span class="font-light">{{ $total }}</span></label>
+                <button wire:click="generateReport"
+                    class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
+                    <i class="fa-solid fa-file-excel"></i>&nbsp;Exportar en Excel
+                </button>
+            </div>
         </div>
+        <hr class="mt-2">
         <div>
             <form class="flex items-center">
                 <div class="flex items-center justify-center mr-2">
