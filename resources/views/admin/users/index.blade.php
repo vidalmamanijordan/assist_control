@@ -53,7 +53,7 @@
                                         Activo
                                     </span>
                                 </td>
-                                <td class="px-6 py-4">
+                                {{-- <td class="px-6 py-4">
                                     <div class="flex justify-center gap-4">
                                         <div class="
                                                 relative
@@ -119,7 +119,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>
