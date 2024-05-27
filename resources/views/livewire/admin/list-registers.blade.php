@@ -3,47 +3,6 @@
         <div class="flex items-center justify-center h-12 mb-4 rounded bg-gray-50 dark:bg-gray-800">
             <i class="fa-solid fa-chart-simple text-rose-500 text-lg"></i>&nbsp;<label class="font-bold">Reportes</label>
         </div>
-        {{-- <div class="grid grid-cols-3 gap-4 mb-4">
-            <div class="flex items-center justify-center h-14 rounded bg-gray-50 dark:bg-gray-800">
-                <div>
-                    Evento:
-                    <select wire:model="filters.event_id" name="event"
-                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-sm">
-                        <option value="">Todos</option>
-                        @foreach ($events as $event)
-                            <option value="{{ $event->id }}">{{ $event->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="flex items-center justify-center h-14 rounded bg-gray-50 dark:bg-gray-800">
-                <div>
-                    Carrera:
-                    <select wire:model="filters.career" name=""
-                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-sm">
-                        <option value="">Todos</option>
-                        @foreach ($careers as $career)
-                            <option value="{{ $career->name }}">{{ $career->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-
-
-            <div class="flex items-center justify-center h-14 rounded bg-gray-50 dark:bg-gray-800">
-                <div class="mt-1">
-                    <label class="mr-12 font-bold">Total: <span class="font-light">{{ $total }}</span></label>
-                    <button wire:click="generateReport"
-                        class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
-                        <i class="fa-solid fa-file-excel"></i>&nbsp;Exportar en Excel
-                    </button>
-                    <a href="{{ route('adminassists.pdf') }}" target="_blank"
-                        class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
-                        <i class="fa-solid fa-file-pdf"></i>&nbsp;Exportar en PDF
-                    </a>
-                </div>
-            </div>
-        </div> --}}
         <div>
             <div>
                 <label class="font-bold">Evento:</label>
@@ -71,6 +30,12 @@
                     class="bg-sky-800 text-white rounded-md px-3 py-2 text-sm font-medium">
                     <i class="fa-solid fa-file-excel"></i>&nbsp;Exportar en Excel
                 </button>
+                Ver
+                <a class="underline text-sm text-orange-400"
+                    href="https://upeuedupe-my.sharepoint.com/:f:/g/personal/upeuvirtualj_upeu_edu_pe/EpxK_diIiOFBmadaALM1wnQBbtCDj_Fjn1S-SgXRJ-bPew?e=YfBH2d"
+                    target="_blank" rel="noopener noreferrer">
+                    <span>[reportes anteriores]</span>
+                </a>
             </div>
         </div>
         <hr class="mt-2">
