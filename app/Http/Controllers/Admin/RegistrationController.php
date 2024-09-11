@@ -54,7 +54,7 @@ class RegistrationController extends Controller
                 if ($existingAssist) {
                     // Si existe, enviar un mensaje de error
                     return redirect()->route('adminregistrations.create', $registration)
-                        ->with('error', 'El registro ya existe en la base de datos.');
+                        ->with('error', 'Ya se registró en este evento.');
                 }
 
                 // Si no existe, obtener los demás valores del participante
