@@ -43,6 +43,14 @@
                 }
                 toastr.success("{{ Session::get('message') }}", 'success!', {timeOut:6000});
             </script>
+        @elseif(Session::has('error'))
+            <script>
+                toastr.options = {
+                    "progressBar" : true,
+                    "closeButton" : true
+                }
+                toastr.info("{{ Session::get('error') }}", 'Info!', {timeOut:6000});
+            </script>
         @elseif(Session::has('not_found'))    
             <script>
                 toastr.options = {

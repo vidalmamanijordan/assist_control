@@ -35,46 +35,37 @@ class RegistrationController extends Controller
         $inputSearch = $request->input('search');
 
         if ($inputSearch) {
+            // Buscar por DNI o código
             $busquedaIdDni = Participant::where('dni', $inputSearch)->select('id')->first();
             $busquedaIdCode = Participant::where('code', $inputSearch)->select('id')->first();
-            
-            if ($busquedaIdDni != null) {
-                $participantId = json_decode($busquedaIdDni->id, true);
 
-                /* CareerName {start} */
-                $careerId = Participant::where('id', $participantId)->select('career_id')->first();
-                $requestedValueCareerId = json_decode($careerId->career_id, true);
-                $career = Career::where('id', $requestedValueCareerId)->select('name')->first();
-                $data = json_decode($career, true);
-                $careerName = $data['name'];
-                /* CareerName {end}*/
+            if ($busquedaIdDni != null || $busquedaIdCode != null) {
+                // Obtener el ID del participante
+                $participantId = $busquedaIdDni != null
+                    ? json_decode($busquedaIdDni->id, true)
+                    : json_decode($busquedaIdCode->id, true);
 
-                /* SemesterName {start} */
-                $semesterId = Participant::where('id', $participantId)->select('semester')->first();
-                $data = json_decode($semesterId, true);
-                $semesterName = $data['semester'];
-                /* SemesterName {start} */
+                // Verificar si ya existe un registro con los mismos user_id, event_id, participant_id
+                $existingAssist = Assist::where('user_id', auth()->id())
+                    ->where('event_id', $registration)
+                    ->where('participant_id', $participantId)
+                    ->first();
 
-                /* GroupName {start} */
-                $groupId = Participant::where('id', $participantId)->select('group')->first();
-                $data = json_decode($groupId, true);
-                $groupName = $data['group'];
-                /* GroupName {start} */
+                if ($existingAssist) {
+                    // Si existe, enviar un mensaje de error
+                    return redirect()->route('adminregistrations.create', $registration)
+                        ->with('error', 'El registro ya existe en la base de datos.');
+                }
 
-                /* Code {start} */
-                $codeId = Participant::where('id', $participantId)->select('code')->first();
-                $data = json_decode($codeId, true);
-                $code = $data['code'];
-                /* Code {start} */
+                // Si no existe, obtener los demás valores del participante
+                $careerName = Participant::where('id', $participantId)->with('career')->first()->career->name;
+                $semesterName = Participant::where('id', $participantId)->select('semester')->first()->semester;
+                $groupName = Participant::where('id', $participantId)->select('group')->first()->group;
+                $code = Participant::where('id', $participantId)->select('code')->first()->code;
+                $names = Participant::where('id', $participantId)->select('name')->first()->name;
 
-                /* Names {start} */
-                $namesId = Participant::where('id', $participantId)->select('name')->first();
-                $data = json_decode($namesId, true);
-                $names = $data['name'];
-                /* Names {start} */
-
+                // Crear el nuevo registro
                 $registrar = new Assist();
-
                 $registrar->user_id = auth()->id();
                 $registrar->event_id = $registration;
                 $registrar->participant_id = $participantId;
@@ -84,64 +75,17 @@ class RegistrationController extends Controller
                 $registrar->semester = $semesterName;
                 $registrar->group = $groupName;
                 $registrar->date = $currentDate;
-
                 $registrar->save();
 
-                return redirect()->route('adminregistrations.create', $registration)->with('message', 'El usuario registró su asistencia');
-            } else if ($busquedaIdCode != null) {
-                $participantId = json_decode($busquedaIdCode->id, true);
-
-                /* CareerName {start} */
-                $careerId = Participant::where('id', $participantId)->select('career_id')->first();
-                $requestedValueCareerId = json_decode($careerId->career_id, true);
-                $career = Career::where('id', $requestedValueCareerId)->select('name')->first();
-                $data = json_decode($career, true);
-                $careerName = $data['name'];
-                /* CareerName {end}*/
-
-                /* SemesterName {start} */
-                $semesterId = Participant::where('id', $participantId)->select('semester')->first();
-                $data = json_decode($semesterId, true);
-                $semesterName = $data['semester'];
-                /* SemesterName {start} */
-
-                /* GroupName {start} */
-                $groupId = Participant::where('id', $participantId)->select('group')->first();
-                $data = json_decode($groupId, true);
-                $groupName = $data['group'];
-                /* GroupName {start} */
-
-                /* Code {start} */
-                $codeId = Participant::where('id', $participantId)->select('code')->first();
-                $data = json_decode($codeId, true);
-                $code = $data['code'];
-                /* Code {start} */
-
-                /* Names {start} */
-                $namesId = Participant::where('id', $participantId)->select('name')->first();
-                $data = json_decode($namesId, true);
-                $names = $data['name'];
-                /* Names {start} */
-                
-                $registrar = new Assist();
-
-                $registrar->user_id = auth()->id();
-                $registrar->event_id = $registration;
-                $registrar->participant_id = $participantId;
-                $registrar->code = $code;
-                $registrar->names = $names;
-                $registrar->career = $careerName;
-                $registrar->semester = $semesterName;
-                $registrar->group = $groupName;
-                $registrar->date = $currentDate;
-
-                $registrar->save();
-
-                return redirect()->route('adminregistrations.create', $registration)->with('message', 'El usuario registró su asistencia');
+                return redirect()->route('adminregistrations.create', $registration)
+                    ->with('message', 'El usuario registró su asistencia');
             }
-            return redirect()->route('adminregistrations.create', $registration)->with('not_found', 'Dato no encontrado en nuestros registros');
-        } else {
-            return redirect()->route('adminregistrations.create', $registration)->with('warning', 'Ingrese dato a buscar');
+
+            return redirect()->route('adminregistrations.create', $registration)
+                ->with('not_found', 'Dato no encontrado en nuestros registros');
         }
+
+        return redirect()->route('adminregistrations.create', $registration)
+            ->with('warning', 'Ingrese dato a buscar');
     }
 }
