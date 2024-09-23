@@ -52,7 +52,8 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
             'Carrera Profesional',
             'Ciclo',
             'Grupo',
-            'Fecha | Hora'
+            'Fecha | Hora',
+            'Usuario | Registrador'
         ];
     }
 
@@ -71,8 +72,8 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
             $assist->participant->career->name,
             $assist->semester,
             $assist->group,
-            /* $assist->date, */
-            Date::dateTimeToExcel($dateTime)
+            Date::dateTimeToExcel($dateTime),
+            $assist->user->name 
         ];
     }
 
@@ -99,7 +100,7 @@ class AssistExport implements FromCollection, WithCustomStartCell, Responsable, 
     public function styles(Worksheet $sheet)
     {
         $sheet->setTitle('Participantes');
-        $sheet->getStyle('A6:H6')->applyFromArray([
+        $sheet->getStyle('A6:I6')->applyFromArray([
             'font' => [
                 'bold' => true
             ]
