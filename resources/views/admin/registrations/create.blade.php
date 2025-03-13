@@ -125,8 +125,8 @@
                                                     <p class="text-xl font-bold text-rose-500 truncate dark:text-white">
                                                         {{ $ultimoRegistro->participant->name }}
                                                     </p>
-                                                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                                                        Último evento: <b>{{ $ultimoRegistro->event->name }}</b>
+                                                    <p class="text-lg text-gray-500 truncate dark:text-gray-400">
+                                                        Evento: <b>{{ $ultimoRegistro->event->name }}</b>
                                                     </p>
                                                 @else
                                                     <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
