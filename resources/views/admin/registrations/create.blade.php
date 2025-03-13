@@ -93,63 +93,63 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
-                <div class="flex items-center justify-center mt-2">
-                    <div
-                        class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                        <div class="flex items-center justify-between mb-4">
-                            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Último registro</h5>
-                            <div class="flex">
-                                <div class="text-blue-600 inline-flex items-center">
-                                    <svg class="-ml-0.5 mr-2 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor" viewBox="0 0 20 14">
-                                        <path
-                                            d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-                                    </svg>
+                    <div class="flex items-center justify-center mt-2">
+                        <div
+                            class="w-full max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                            <div class="flex items-center justify-between mb-4">
+                                <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Último registro</h5>
+                                <div class="flex">
+                                    <div class="text-blue-600 inline-flex items-center">
+                                        <svg class="-ml-0.5 mr-2 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor" viewBox="0 0 20 14">
+                                            <path
+                                                d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                                        </svg>
+                                    </div>
+                                    <a clas href="{{ route('adminassists.index') }}"
+                                        class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                                        Ver más
+                                    </a>
                                 </div>
-                                <a clas href="{{ route('adminassists.index') }}"
-                                    class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-                                    Ver más
-                                </a>
+                            </div>
+                            <div class="flow-root">
+                                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <li class="py-3 sm:py-4">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="flex-shrink-0">
+                                                <img class="w-8 h-8 rounded-full" src="https://i.postimg.cc/KzNbbbRN/user.png"
+                                                    alt="user">
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                @if ($ultimoRegistro && $ultimoRegistro->participant)
+                                                    <p class="text-xl font-bold text-rose-500 truncate dark:text-white">
+                                                        {{ $ultimoRegistro->participant->name }}
+                                                    </p>
+                                                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                        Último evento: <b>{{ $ultimoRegistro->event->name }}</b>
+                                                    </p>
+                                                @else
+                                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                                        No hay datos disponibles
+                                                    </p>
+                                                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                        No hay datos disponibles
+                                                    </p>
+                                                @endif
+                                            </div>
+                                            <div
+                                                class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+
+                                                {{-- {{ $assists->date  }}     --}}
+
+                                                {{-- No hay Fecha registrado aún... --}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="flow-root">
-                            <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-                                <li class="py-3 sm:py-4">
-                                    <div class="flex items-center space-x-4">
-                                        <div class="flex-shrink-0">
-                                            <img class="w-8 h-8 rounded-full" src="https://i.postimg.cc/KzNbbbRN/user.png"
-                                                alt="user">
-                                        </div>
-                                        <div class="flex-1 min-w-0">
-                                            @if ($ultimoRegistro && $ultimoRegistro->participant)
-                                                <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                                    {{ $ultimoRegistro->participant->name }}
-                                                </p>
-                                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                                                    Último evento: <b>{{ $ultimoRegistro->event->name }}</b>
-                                                </p>
-                                            @else
-                                                <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                                    No hay datos disponibles
-                                                </p>
-                                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                                                    No hay datos disponibles
-                                                </p>
-                                            @endif
-                                        </div>
-                                        <div
-                                            class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-
-                                            {{-- {{ $assists->date  }}     --}}
-
-                                            {{-- No hay Fecha registrado aún... --}}
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
-                </div>
             </div>
             {{-- search {end} --}}
         </div>
